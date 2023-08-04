@@ -1,0 +1,48 @@
+project:
+  name: twilio-ec-recording
+instance:
+  name: dev
+  runtime: nodejs16
+  region: 
+  application-id: 
+  entrypoint:
+    - npm
+    - run
+    - server
+  environment:
+    - name: GOOGLE_CREDS
+      value: ''
+    - name: REACT_APP_DISABLE_TWILIO_CONVERSATIONS
+      value: 
+    - name: REACT_APP_EC_NAME
+      value: 
+    - name: REACT_APP_FIREBASE_API_KEY
+      value: 
+    - name: REACT_APP_FIREBASE_AUTH_DOMAIN
+      value: 
+    - name: REACT_APP_FIREBASE_DATABASE_URL
+      value: 
+    - name: REACT_APP_FIREBASE_MESSAGING_SENDER_ID
+      value: 
+    - name: REACT_APP_FIREBASE_STORAGE_BUCKET
+      value: 
+    - name: REACT_APP_SET_AUTH
+      value: 
+    - name: TWILIO_ACCOUNT_SID
+      value: 
+    - name: TWILIO_API_KEY_SECRET
+      value: 
+    - name: TWILIO_API_KEY_SID
+      value: 
+    - name: TWILIO_CONVERSATIONS_SERVICE_SID
+      value: 
+    - name: VONAGE_API_KEY
+      value: 
+    - name: VONAGE_API_SECRET
+      value: 
+debug:
+  name: debug
+  entrypoint:
+    - npm
+    - run
+    - server

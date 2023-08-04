@@ -8,7 +8,7 @@ import { Archive, Session } from 'opentok';
 const OpenTok = require("opentok");
 const jwt = require('jsonwebtoken');
 
-const PORT = process.env.PORT ?? 8081;
+const PORT = process.env.NERU_APP_PORT || process.env.PORT || 8081;
 const opentok = new OpenTok(process.env.VONAGE_API_KEY, process.env.VONAGE_API_SECRET);
 
 const app = express();
@@ -31,6 +31,11 @@ const recordingRulesEndpoint = createExpressHandler(recordingRulesFunction);
 const noopMiddleware: RequestHandler = (_, __, next) => next();
 const authMiddleware =
   process.env.REACT_APP_SET_AUTH === 'firebase' ? require('./firebaseAuthMiddleware') : noopMiddleware;
+
+
+app.get('/_/health', async (req, res) => {
+    res.sendStatus(200);
+});
 
 app.all('/token', authMiddleware, tokenEndpoint);
 app.all('/recordingrules', authMiddleware, recordingRulesEndpoint);
